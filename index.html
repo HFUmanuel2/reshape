@@ -35,6 +35,7 @@ body {
     text-align: left;
     padding-left: 5%; 
     padding-top: 0%; 
+    color: #000;
 }
 
 .header .header-text h1 {
@@ -47,7 +48,7 @@ body {
 .header .header-text p {
     font-size: 1.2em;
     font-weight: 700;
-    margin-top: 5px;
+    margin-top: -10px;
     color: #666;
     position: relative;
     left: 40px; 
@@ -59,7 +60,7 @@ body {
     object-fit: cover;
 }
 
-        .products {
+.products {
     text-align: center;
     margin: 50px 0;
 }
@@ -69,6 +70,7 @@ body {
     font-weight: 700; 
     text-transform: uppercase; 
     text-align: center; 
+    color: #000;
 }
 
 .product {
@@ -126,7 +128,6 @@ body {
     text-align: center;
 }
 
-/* Close-Button */
 .modal-close {
     position: absolute;
     top: 10px;
@@ -142,7 +143,6 @@ body {
     color: #555;
 }
 
-/* Bilder in der Modal-Box */
 .modal-images {
     display: flex;
     justify-content: center;
@@ -404,18 +404,18 @@ body {
 </style>
 
 <script>
-        function showPopup(content) {
-            const popup = document.getElementById('popup');
-            const overlay = document.getElementById('overlay');
-            popup.innerHTML = content + '<br><button onclick="hidePopup()">Schließen</button>';
-            popup.style.display = 'block';
-            overlay.style.display = 'block';
-        }
+function showPopup(content) {
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+    popup.innerHTML = content + '<br><button onclick="hidePopup()">Schließen</button>';
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+}
 
-        function hidePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+function hidePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
 // Öffnet das Modal
 function openModal(productName, imageUrls, description) {
     const modal = document.getElementById('productModal');
@@ -501,15 +501,15 @@ function showNewsletterPopup() {
         </div>
     </div>
     
-<!-- Modal -->
-<div id="productModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <div id="modalImages" class="modal-images"></div>
-        <p id="modalDescription"></p>
+    <!-- Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+         <div id="modalImages" class="modal-images"></div>
+         <p id="modalDescription"></p>
+      </div>
     </div>
-</div>
 
     <!-- Nachhaltigkeitskonzept -->
     <div class="sustainability">
