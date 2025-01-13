@@ -13,12 +13,15 @@
 
 <style>
 
+
+
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
 }
+
     
 .header {
     display: flex;
@@ -79,6 +82,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 .product img {
     max-width: 600px;
@@ -370,20 +374,23 @@ body {
     opacity: 0;
     transform: translateX(0);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
 }
 
 .animate-on-scroll.from-left {
-    transform: translateX(-100px);
+    transform: translateY(40px);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 .animate-on-scroll.from-right {
-    transform: translateX(100px);
+    transform: translateY(40px);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
 }
 
 .animate-on-scroll-scale {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.8s ease-out;
 }
 
 .animate-on-scroll.visible, .animate-on-scroll-scale.visible {
@@ -516,15 +523,19 @@ function showNewsletterPopup() {
             const rect = el.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            if (rect.top <= windowHeight * 0.9) {
+            // Stelle sicher, dass das Element erst sichtbar wird, wenn es weiter im Blickfeld ist (z. B. 75% des Fensters).
+            const triggerHeight = windowHeight * 0.75;
+
+            if (rect.top <= triggerHeight) {
                 el.classList.add('visible');
             }
         });
     }
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Initial aufrufen, um bereits sichtbare Elemente zu animieren
 });
+
 
 </script>
 
