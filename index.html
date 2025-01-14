@@ -509,31 +509,29 @@ function showNewsletterPopup() {
     }
 
     function subscribeNewsletter(event) {
-        event.preventDefault();
-        const email = document.getElementById('newsletterEmail').value;
-        alert(`Danke für Ihre Anmeldung, ${email}!`);
-        hidePopup();
-    }
+    event.preventDefault();
+    const email = document.getElementById('newsletterEmail').value;
+    alert(`Danke für Ihre Anmeldung, ${email}!`);
+    hidePopup();
+}
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-scale');
+document.addEventListener('DOMContentLoaded', () => {
+const elements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-scale');
 
-    function handleScroll() {
-        elements.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+function handleScroll() {
+    elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const triggerHeight = windowHeight * 0.75;
 
-            // Stelle sicher, dass das Element erst sichtbar wird, wenn es weiter im Blickfeld ist (z. B. 75% des Fensters).
-            const triggerHeight = windowHeight * 0.75;
+        if (rect.top <= triggerHeight) {
+            el.classList.add('visible');
+        }
+    });
+}
 
-            if (rect.top <= triggerHeight) {
-                el.classList.add('visible');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial aufrufen, um bereits sichtbare Elemente zu animieren
+window.addEventListener('scroll', handleScroll);
+    
 });
 
 
@@ -545,8 +543,8 @@ function showNewsletterPopup() {
     <!-- Header -->
     <div class="header">
         <div class="header-text">
-            <h1 class="animate-on-scroll">ReShape</h1>
-            <p class="animate-on-scroll">recycled furniture</p>    
+            <h1>ReShape</h1>
+            <p>recycled furniture</p>    
         </div>
         <img src="images/gif2.gif" alt="Header-Bild">
     </div>
